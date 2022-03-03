@@ -86,4 +86,3 @@ console.log(aa, bb, others);
 //Functions
 // function calculate(...numbers) {
 //   return numbers => numbers * numbers;
-// }
