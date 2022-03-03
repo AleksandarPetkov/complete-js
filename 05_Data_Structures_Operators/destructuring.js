@@ -69,3 +69,21 @@ const {
   fri: { open, close },
 } = openingHours;
 console.log(open, close);
+
+// ******* Spread Operator (unpack aray)**************
+const initialArray = [1, 2, 3, 4];
+const newArray = [10, 20, ...initialArray];
+console.log(newArray);
+
+//Copy array
+const copyArray = [...restaurant.mainMenu];
+//Join arrays
+const joinArray = [...restaurant.mainMenu, ...restaurant.starterMenu];
+
+// ******* Rest Operator (pack aray)**************
+const [aa, bb, ...others] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+console.log(aa, bb, others);
+//Functions
+// function calculate(...numbers) {
+//   return numbers => numbers * numbers;
+// }
