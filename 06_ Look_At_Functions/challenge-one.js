@@ -36,9 +36,19 @@ const poll = {
   // This generates [0, 0, 0, 0]. More in the next section 😃
   answers: new Array(4).fill(0),
   registerNewAnswer: function () {
-    const poolText = window.prompt(
-      `${this.question}\n${this.options.join('\n')}`
-    );
+    const inputNumber = Number(window.prompt(`${this.question}\n${this.options.join('\n')}`));
+
+    if(typeof inputNumber === 'number' &&
+     (inputNumber >= 0 && inputNumber < this.options.length)){
+       this.answers[inputNumber]++;
+    }
+
+    this.showResults();
   },
+  showResults: function(){
+    console.log(poll.answers)
+  }
 };
-console.log(poll.registerNewAnswer());
+
+document.querySelector('.poll').addEventListener('click', poll.registerNewAnswer.bind(poll));
+
