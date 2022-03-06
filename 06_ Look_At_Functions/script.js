@@ -43,3 +43,19 @@ const transformer = function (str, fn) {
 };
 transformer('JavaScript is the best!', oneWord);
 transformer('JavaScript is the best!', upperFirstWord);
+
+//RETURN FUNCTION
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+//Arrow Representation (One Arrow Function Return other Arrow Function)
+const greetArrow = greeting => name => console.log(`${greeting} ${name}`);
+
+const greeterHello = greet('Hello'); // greeterHello is a function
+greeterHello('Alex');
+greet('Hey')('Alex'); // Other syntax
+
+//Bind KEYWORD
