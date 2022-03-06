@@ -135,7 +135,7 @@ lufthansa.buyPlane = function () {
 
 document
   .querySelector('.buy') //Need to use B
-  .addEventListener('click', lufthansa.buyPlane.bind(lufthansa)); 
+  .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
 
 // Partial application
 const addTax = (rate, value) => value + value * rate;
@@ -155,5 +155,36 @@ const addTaxRate = function (rate) {
 const addVAT2 = addTaxRate(0.23);
 console.log(addVAT2(100));
 console.log(addVAT2(23));
+
+// *** Immediately invoked Functions Expression (IIFE) (Only executed once) Wrapping in ( ) and Hidding variables
+const runOnce = function () {
+  console.log('This will never run again');
+};
+runOnce();
+
+// IIFE
+(function () {
+  console.log('This will never run again');
+  const isPrivate = 23;
+})();
+
+
+// *** Closures ************* /////////////////////////////////////////////
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
+
+console.dir(booker);
 
 
