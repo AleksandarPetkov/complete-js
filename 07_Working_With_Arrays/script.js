@@ -76,8 +76,28 @@ const displayMovements = function (movements) {
     containerMovements.insertAdjacentHTML('afterbegin', html);
   })
 }
-
 displayMovements(account1.movements);
+
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner //Directly create a new property:  acc.username 
+      .toLocaleLowerCase()
+      .split(' ')
+      .map(name => name.charAt(0))
+      .join(''); // Return array and join it as string
+  })
+}
+createUsernames(accounts);
+console.log(accounts);
+
+const calcBalans = function(accs){
+  accs.forEach(function(acc) {
+    const userBalanc = acc.movements.reduce((accumulator, mov) => accumulator + mov);
+    labelBalance.textContent = `${userBalanc} $`
+  },0) // Set starting accumulator value
+}
+calcBalans(accounts);
+
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////

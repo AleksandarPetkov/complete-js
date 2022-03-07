@@ -23,8 +23,41 @@ const joinArr = arr2.join('---'); //Return String
 
 // AT arr[0] is same as arr.at(0)
 
-
 // INCUDES, INDEXOF, PUSH, SHIFT
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// ************ DATA Transformation : MAP, Filter, Reduce  ************************
+
+// 1) Map method - loop over the array and give us brand new array and will contain result of the callback function for each element
+
+const levaToEuroRatio = 1.96;
+const euro = [5, 11, 300, 100, 50, 1000];
+                    //Invoke the CALL BACK function foreach element
+const leva = euro.map(lev => lev * levaToEuroRatio); // (=> isEuql to RETURN)
+
+// euro.map(function(mov) { Other way of implementation
+//     return mov * levaToEuroRatio;
+// })
+console.log(leva);
+
+// Compute fullName to comp 
+const fullName = 'Aleksandar Petkov Petkov' // 
+const comp = fullName.toLocaleLowerCase().split(' ').map(name => name.charAt(0))
+.join(''); // Return array and join it as string
+console.log(comp);
+
+// 2) Filter Method
+const bigEuro = euro.filter(euro => euro >= 100);
+console.log(bigEuro);
+
+// 3) Reduce Method : Resolve all elements in array to single value: accumulator like variable
+const alleuro = euro.reduce(function(accumulator, cur, i , arr) { 
+    console.log(`Iteration ${i} : Accumulator: ${accumulator}`);
+    return accumulator + cur;
+},0); // Set starting value for accumulator
+console.log(alleuro);
+
+
 
 
 
