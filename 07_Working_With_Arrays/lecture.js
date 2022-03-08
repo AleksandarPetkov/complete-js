@@ -103,6 +103,13 @@ const arrText = Array.from(strText);
 // movementsUI.map(el => el.textContent.replace('!', '?'))
 
 
+// ********* Flat and FlatMap: create a flattened array of elements by running each element in the collection through a mapping function and flattening the mapped results.
+
+//Example in challenge #4 (schallenge.js)
+// const ownersEatTooMuch = dogs.filter(dog => dog.curFood > dog.recommendedFood)
+//     .flatMap(dog => dog.owners) 
+
+
 
 
 
