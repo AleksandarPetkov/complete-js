@@ -15,8 +15,8 @@ TEST DATA 1: Julia's data [3, 5, 2, 12, 7], Kate's data [4, 1, 15, 8, 3]
 const juliaData = [3, 5, 2, 12, 7];
 const kateData = [4, 1, 15, 8, 3];
 
-const checkDogs = function (dogsJulia, dogsKate){
-    const correctedDogsJulia = dogsJulia.slice(1,3);
+const checkDogs = function (dogsJulia, dogsKate) {
+    const correctedDogsJulia = dogsJulia.slice(1, 3);
     // const newArr = dogsJulia.slice(); Another implementation
     // newArr.splice(-2);
     // newArr.splice(0,1);
@@ -46,12 +46,29 @@ TEST DATA 1: [5, 2, 4, 1, 15, 8, 3]
 TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]*/
 
 
-const calcAverageHumanAge = function(ages){
+const calcAverageHumanAge = function (ages) {
     const dogsToHumanAge = ages.map(age => age <= 2 ? (2 * age) : (16 + (age * 4)));
-    
+
     const adultDogs = dogsToHumanAge.filter(age => age >= 18);
     const averageAge = adultDogs.reduce((acc, age) => acc + age) / adultDogs.length;
     return averageAge;
 };
 
-console.log(calcAverageHumanAge( [16, 6, 10, 5, 6, 1, 4] ));
+console.log(calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]));
+
+/* 
+Rewrite the 'calcAverageHumanAge' function from the previous challenge, but this time as an arrow function, and using chaining!
+
+TEST DATA 1: [5, 2, 4, 1, 15, 8, 3]
+TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
+
+GOOD LUCK 😀
+*/
+
+const chainingCalcAverageHumanAge = function (ages) {
+    return ages.map(age => age <= 2 ? (2 * age) : (16 + (age * 4)))
+        .filter(age => age >= 18)
+        .reduce((acc, age, i, arr) => acc + age / arr.length, 0);
+}
+
+console.log(chainingCalcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]))

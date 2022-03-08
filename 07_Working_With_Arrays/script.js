@@ -90,13 +90,29 @@ const createUsernames = function (accs) {
 createUsernames(accounts);
 console.log(accounts);
 
-const calcBalans = function(accs){
-  accs.forEach(function(acc) {
+const calcBalans = function (accs) {
+  accs.forEach(function (acc) {
     const userBalanc = acc.movements.reduce((accumulator, mov) => accumulator + mov);
     labelBalance.textContent = `${userBalanc} $`
-  },0) // Set starting accumulator value
-}
+  }, 0) // Set starting accumulator value
+};
 calcBalans(accounts);
+
+const calcSummary = function (movements) {
+  const deposits = movements.filter(mov => mov > 0).reduce((acc, mov) => acc + mov, 0);
+  labelSumIn.textContent = deposits;
+
+  const withdrawal = movements.filter(mov => mov < 0).reduce((acc, mov) => acc + mov, 0);
+  labelSumOut.textContent = Math.abs(withdrawal);
+
+  const interest = movements.filter(mov => mov > 0)
+    .map(dep => (dep * 1.2) / 100)
+    .filter(interest => interest > 2)
+    .reduce((acc, int) => acc + int, 0);
+
+  labelSumInterest.textContent = interest;
+};
+calcSummary(account1.movements)
 
 
 /////////////////////////////////////////////////
