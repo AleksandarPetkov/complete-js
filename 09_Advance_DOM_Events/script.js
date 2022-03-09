@@ -2,7 +2,6 @@
 
 ///////////////////////////////////////
 // Modal window
-
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
@@ -32,3 +31,18 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
+
+//Smooth scrolling
+const btnScrolling = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrolling.addEventListener('click', function (e) {
+  //Need to obtain coordinates
+  const s1coords = section1.getBoundingClientRect();
+
+  window.scrollTo(
+    s1coords.left + pageXOffset,
+    s1coords.top + pageYOffset
+  )
+})
+
